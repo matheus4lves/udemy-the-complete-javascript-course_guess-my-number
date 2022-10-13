@@ -33,4 +33,27 @@ const handleWrongGuess = text => {
   score.textContent = scoreValue;
 };
 
+// Event handling
+btnCheck.addEventListener("click", function () {
+  const guessedNumber = Number(guess.value);
+
+  if (guessedNumber === randomNumber) {
+    if (scoreValue > highscoreValue) {
+      highscoreValue = scoreValue;
+    }
+
+    number.textContent = randomNumber;
+    message.textContent = "🎉 Correct number!";
+    score.textContent = scoreValue;
+    highscore.textContent = highscoreValue;
+    document.body.style.backgroundColor = "#60b347";
+  } else if (guessedNumber < randomNumber) {
+    handleWrongGuess("📉 Too low!");
+  } else {
+    handleWrongGuess("📈 Too high!");
+  }
+});
+
+btnAgain.addEventListener("click", startNewGame);
+
 startNewGame();

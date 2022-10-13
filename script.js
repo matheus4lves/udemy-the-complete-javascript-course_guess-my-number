@@ -27,4 +27,10 @@ const startNewGame = () => {
   guess.value = "";
 };
 
+const handleWrongGuess = text => {
+  scoreValue--;
+  message.textContent = text;
+  score.textContent = scoreValue;
+};
+
 startNewGame();
